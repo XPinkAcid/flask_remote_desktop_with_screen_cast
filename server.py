@@ -2,7 +2,6 @@
 import os
 import time
 import atexit
-import threading
 from functools import wraps
 
 # third party imports
@@ -337,7 +336,7 @@ def clean_tmp_png():
 
 
 def do_once():
-    if not 'do_once' in config:
+    if 'do_once' not in config:
         shot = pyautogui.screenshot()
         draw = ImageDraw.Draw(shot)
         x, y = pyautogui.position()
